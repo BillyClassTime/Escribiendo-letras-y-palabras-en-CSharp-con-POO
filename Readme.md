@@ -56,7 +56,7 @@ Todos los participantes deberán recibir la clase abstracta y la clase base de G
 
 
 
-![](D:\BMV\20483C\Ejercicios\LetrasPOO\img\clases.png)
+![](.\clases.png)
 
 ### Fecha de revision y entrega
 
