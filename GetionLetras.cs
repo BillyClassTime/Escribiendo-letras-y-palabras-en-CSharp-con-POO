@@ -5,7 +5,7 @@ using static System.Console;
 using System.IO;
 namespace LetrasPOO
 {
-  public abstract class Gestion
+    public abstract class Gestion
     {
         protected char Blanco = ' ';
         protected sbyte SIETE = 7;
@@ -39,7 +39,6 @@ namespace LetrasPOO
                 WriteLine($"Problemas con el diccionario en disco:{e.Message.Substring(0, 24)}");
             }
         }
-
         private void cargarDiccionarioDeLetras()
         {
             if (letras == null)

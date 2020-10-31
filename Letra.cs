@@ -1,7 +1,7 @@
 using System;
 namespace LetrasPOO
 {
-    public enum NombreLetra { A, B, C, D, E, F, G, H, I, J, K, L, M, N, Ñ, O, P, Q, R, S, T, U, V, W, X, Y, Z }
+    public enum NombreLetra { A, B, C, D, E, F, G, H, I, J, K, L, M, N, Ñ, O, P, Q, R, S, T, U, V, W, X, Y, Z, Á }
     public abstract class Letra
     {
         protected const sbyte SIETE = 7;
@@ -15,11 +15,10 @@ namespace LetrasPOO
     #region Diccionario de letras
     public class A : Letra
     {
-        // varsion Inicial de Sergio
-        //private char[,] matrizLetra; // = new char[SIETE,SIETE];
         public override NombreLetra Nombre => NombreLetra.A;
         public A()
         {
+            //Sergio
             matrizLetra = new char[SIETE, SIETE]{
             {Asterisco,Asterisco,Asterisco,Asterisco,Asterisco,Asterisco,Asterisco},
             {Asterisco,Blanco,Blanco,Blanco,Blanco,Blanco,Asterisco},
@@ -29,7 +28,6 @@ namespace LetrasPOO
             {Asterisco,Blanco,Blanco,Blanco,Blanco,Blanco,Asterisco},
             {Asterisco,Blanco,Blanco,Blanco,Blanco,Blanco,Asterisco}};
         }
-
     }
     public class B : Letra
     {
@@ -37,7 +35,6 @@ namespace LetrasPOO
         public override NombreLetra Nombre => NombreLetra.B;
         public B()
         {
-
             for (var i = 0; i < SIETE; i++)
             {
                 //recorremos horizontal
@@ -95,7 +92,6 @@ namespace LetrasPOO
                 }
             }
         }
-
     }
     public class E : Letra
     {
@@ -112,7 +108,6 @@ namespace LetrasPOO
             , {Asterisco,Blanco,Blanco,Blanco,Blanco,Blanco,Blanco}
             , {Asterisco,Asterisco,Asterisco,Asterisco,Asterisco,Asterisco,Asterisco}};
         }
-
     }
     public class F : Letra
     {
@@ -132,7 +127,6 @@ namespace LetrasPOO
                 }
             }
         }
-
     }
     public class G : Letra
     {
@@ -154,7 +148,6 @@ namespace LetrasPOO
                 }
             }
         }
-
     }
     public class H : Letra
     {
@@ -174,7 +167,6 @@ namespace LetrasPOO
                 }
             }
         }
-
     }
     public class I : Letra
     {
@@ -194,7 +186,6 @@ namespace LetrasPOO
                 }
             }
         }
-
     }
     public class J : Letra
     {
@@ -211,7 +202,6 @@ namespace LetrasPOO
             {Blanco,Asterisco,Blanco,Blanco,Blanco,Blanco,Asterisco},
             {Blanco,Blanco,Asterisco,Asterisco,Asterisco,Asterisco,Asterisco}};
         }
-
     }
     public class K : Letra
     {
@@ -279,7 +269,6 @@ namespace LetrasPOO
                 }
             }
         }
-
     }
     public class L : Letra
     {
@@ -293,7 +282,6 @@ namespace LetrasPOO
                 matrizLetra[6, i] = '*';
             }
         }
-
     }
     public class M : Letra
     {
@@ -308,7 +296,6 @@ namespace LetrasPOO
             {'*',' ',' ',' ',' ',' ','*'},
             {'*',' ',' ',' ',' ',' ','*'}};
         }
-
     }
     public class N : Letra
     {
@@ -335,7 +322,6 @@ namespace LetrasPOO
                 }
             }
         }
-
     }
     public class Ñ : Letra
     {
@@ -357,7 +343,6 @@ namespace LetrasPOO
             matrizLetra[5, 4] = '*';
             matrizLetra[6, 5] = '*';
         }
-
     }
     public class O : Letra
     {
@@ -374,7 +359,6 @@ namespace LetrasPOO
               {' ',' ','*','*','*',' ',' '}};
 
         }
-
     }
     public class P : Letra
     {
@@ -395,7 +379,6 @@ namespace LetrasPOO
                 }
             }
         }
-
     }
     public class Q : Letra
     {
@@ -412,7 +395,6 @@ namespace LetrasPOO
            {'*',' ',' ',' ',' ','*',' '},
            {' ','*','*','*','*',' ','*'}};
         }
-
     }
     public class R : Letra
     {
@@ -433,7 +415,6 @@ namespace LetrasPOO
                 }
             }
         }
-
     }
     public class S : Letra
     {
@@ -454,7 +435,6 @@ namespace LetrasPOO
                 }
             }
         }
-
     }
     public class T : Letra
     {
@@ -468,7 +448,6 @@ namespace LetrasPOO
                 matrizLetra[i, 3] = '*';
             }
         }
-
     }
     public class U : Letra
     {
@@ -485,7 +464,6 @@ namespace LetrasPOO
             {'*',' ',' ',' ',' ',' ','*'},
             {'*','*','*','*','*','*','*'}};
         }
-
     }
     public class V : Letra
     {
@@ -505,7 +483,6 @@ namespace LetrasPOO
                 }
             }
         }
-
     }
     public class W : Letra
     {
@@ -568,7 +545,6 @@ namespace LetrasPOO
                 }
             }
         }
-
     }
     public class X : Letra
     {
@@ -585,7 +561,6 @@ namespace LetrasPOO
             {' ','*',' ',' ',' ','*',' '},
             {'*',' ',' ',' ',' ',' ','*'}};
         }
-
     }
     public class Y : Letra
     {
@@ -603,7 +578,6 @@ namespace LetrasPOO
             for (var i = 3; i < SIETE; i++)
                 matrizLetra[i, 3] = '*';
         }
-
     }
     public class Z : Letra
     {
@@ -622,8 +596,21 @@ namespace LetrasPOO
                 }
             }
         }
-
+    }
+    public class Á : Letra
+    {
+        public override NombreLetra Nombre => NombreLetra.Á;
+        public Á()
+        {   // Billy Vanegas 31 Oct 2020
+            matrizLetra = new char[SIETE, SIETE]{
+            {Blanco,Blanco,Blanco,Blanco,Asterisco,Asterisco,Asterisco},
+            {Blanco,Blanco,Blanco,Asterisco,Blanco,Blanco,Blanco},
+            {Blanco,Blanco,Asterisco,Blanco,Asterisco,Blanco,Blanco},
+            {Blanco,Asterisco,Blanco,Blanco,Blanco,Asterisco,Blanco},
+            {Blanco,Asterisco,Asterisco,Asterisco,Asterisco,Asterisco,Blanco},
+            {Blanco,Asterisco,Blanco,Blanco,Blanco,Asterisco,Blanco},
+            {Blanco,Asterisco,Blanco,Blanco,Blanco,Asterisco,Blanco}};
+        }
     }
     #endregion
-
 }

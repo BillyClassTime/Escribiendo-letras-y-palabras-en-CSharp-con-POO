@@ -10,7 +10,6 @@ namespace LetrasPOO
         public string FilePath => filePath;
         public void SerializarLetras(Dictionary<char, Letra> letras)
         {
-
             string json = JsonConvert.SerializeObject(letras, Formatting.Indented,
             new JsonSerializerSettings
             {
@@ -18,7 +17,6 @@ namespace LetrasPOO
                 TypeNameAssemblyFormatHandling = 0
             });
             File.WriteAllText(FilePath, json);
-
         }
         public Dictionary<char, Letra> DesSereliazarLetras()
         {
