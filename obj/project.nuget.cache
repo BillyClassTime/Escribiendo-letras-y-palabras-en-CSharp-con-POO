@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "OSooVyGIKqELO+yw1O0b1m1DyfmiKgggaG9qj0M++INwmGL9KK9R2hdhjV5rNMj1DTyHK0eTghb4joXiap3LrA==",
+  "dgSpecHash": "7azpJn3MQBo+N0l4ezgaUK11rJ5H0X3whaAnjDvjUjNC+DfNGvRmopAL0Formu3YRQSnQuprFbZdpeu8DZMl6g==",
   "success": true,
   "projectFilePath": "D:\\BMV\\20483C\\Ejercicios\\LetrasPOO\\LetrasPOO.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Billy Vanegas\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

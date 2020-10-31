@@ -1,7 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Reflection;
-using static System.Console;
 namespace LetrasPOO
 {
     public enum NombreLetra { A, B, C, D, E, F, G, H, I, J, K, L, M, N, Ñ, O, P, Q, R, S, T, U, V, W, X, Y, Z }
@@ -11,19 +8,19 @@ namespace LetrasPOO
         protected const char Asterisco = '*';
         protected const char Blanco = ' ';
         protected const sbyte Length = SIETE;
+        protected char[,] matrizLetra = new char[SIETE, SIETE];
         public abstract NombreLetra Nombre { get; }
-        public abstract char[,] MatrizLetra { get; }
+        public char[,] MatrizLetra => matrizLetra;
     }
-
+    #region Diccionario de letras
     public class A : Letra
     {
         // varsion Inicial de Sergio
-        private char[,] matrizLetra; // = new char[7,7];
+        //private char[,] matrizLetra; // = new char[SIETE,SIETE];
         public override NombreLetra Nombre => NombreLetra.A;
-        public override char[,] MatrizLetra => matrizLetra; // { get; }
         public A()
         {
-            matrizLetra = new char[7, 7]{
+            matrizLetra = new char[SIETE, SIETE]{
             {Asterisco,Asterisco,Asterisco,Asterisco,Asterisco,Asterisco,Asterisco},
             {Asterisco,Blanco,Blanco,Blanco,Blanco,Blanco,Asterisco},
             {Asterisco,Blanco,Blanco,Blanco,Blanco,Blanco,Asterisco},
@@ -37,16 +34,14 @@ namespace LetrasPOO
     public class B : Letra
     {
         // Version Inicial de Juanjo
-        private char[,] matrizLetra = new char[7, 7];
         public override NombreLetra Nombre => NombreLetra.B;
-        public override char[,] MatrizLetra => matrizLetra;
         public B()
         {
 
-            for (var i = 0; i < 7; i++)
+            for (var i = 0; i < SIETE; i++)
             {
                 //recorremos horizontal
-                for (var j = 0; j < 7; j++)
+                for (var j = 0; j < SIETE; j++)
                 {
                     matrizLetra[i, j] = (
                             (((i == 0 || i == 6) && j < 4)
@@ -62,12 +57,10 @@ namespace LetrasPOO
     public class C : Letra
     {
         // Version Inicial de Justo
-        private char[,] matrizLetra; // = new char[7,7];
         public override NombreLetra Nombre => NombreLetra.C;
-        public override char[,] MatrizLetra => matrizLetra;
         public C()
         {
-            matrizLetra = new char[7, 7] {
+            matrizLetra = new char[SIETE, SIETE] {
                         {Blanco,Blanco,Asterisco,Asterisco,Asterisco,Asterisco,Blanco},
                         {Blanco,Asterisco,Blanco,Blanco,Blanco,Blanco,Asterisco},
                         {Asterisco,Blanco,Blanco,Blanco,Blanco,Blanco,Blanco},
@@ -77,16 +70,13 @@ namespace LetrasPOO
                         {Blanco,Blanco,Asterisco,Asterisco,Asterisco,Asterisco,Blanco}};
         }
     }
-
     public class D : Letra
     {
         // Version Inicial de Miguel Angel
-        private char[,] matrizLetra = new char[7,7];
         public override NombreLetra Nombre => NombreLetra.D;
-        public override char[,] MatrizLetra => matrizLetra; // { get; }
         public D()
         {
-            string[] letr = new string[7];
+            string[] letr = new string[SIETE];
             letr[0] = "****** ";
             letr[1] = "*     *";
             letr[2] = "*     *";
@@ -97,9 +87,9 @@ namespace LetrasPOO
 
             // AÑADIDO:
             // Pasamos el array de una dimensión al de dos dimensiones.
-            for (var row = 0; row < 7; row++)
+            for (var row = 0; row < SIETE; row++)
             {
-                for (var col = 0; col < 7; col++)
+                for (var col = 0; col < SIETE; col++)
                 {
                     matrizLetra[row, col] = Convert.ToChar(letr[row].Substring(col, 1));
                 }
@@ -110,12 +100,10 @@ namespace LetrasPOO
     public class E : Letra
     {
         // Version Inicial de Luis Miguel
-        private char[,] matrizLetra; // = new char[7,7];
         public override NombreLetra Nombre => NombreLetra.E;
-        public override char[,] MatrizLetra => matrizLetra; // { get; }
         public E()
         {
-            matrizLetra = new char[7, 7] {
+            matrizLetra = new char[SIETE, SIETE] {
               {Asterisco,Asterisco,Asterisco,Asterisco,Asterisco,Asterisco,Asterisco}
             , {Asterisco,Blanco,Blanco,Blanco,Blanco,Blanco,Blanco}
             , {Asterisco,Blanco,Blanco,Blanco,Blanco,Blanco,Blanco}
@@ -129,9 +117,7 @@ namespace LetrasPOO
     public class F : Letra
     {
         // Version Inicial de Carola
-        private char[,] matrizLetra = new char[7,7];
         public override NombreLetra Nombre => NombreLetra.F;
-        public override char[,] MatrizLetra => matrizLetra; // { get; }
         public F()
         {
             for (var row = 0; row < Length; row++)
@@ -151,9 +137,7 @@ namespace LetrasPOO
     public class G : Letra
     {
         // Version Inicial de Carola
-        private char[,] matrizLetra = new char[7,7];
         public override NombreLetra Nombre => NombreLetra.G;
-        public override char[,] MatrizLetra => matrizLetra; // { get; }
         public G()
         {
             for (var row = 0; row < Length; row++)
@@ -175,9 +159,7 @@ namespace LetrasPOO
     public class H : Letra
     {
         // Version Inicial de Carola
-        private char[,] matrizLetra = new char[7,7];
         public override NombreLetra Nombre => NombreLetra.H;
-        public override char[,] MatrizLetra => matrizLetra; // { get; }
         public H()
         {
             for (var row = 0; row < Length; row++)
@@ -197,9 +179,7 @@ namespace LetrasPOO
     public class I : Letra
     {
         // Carlos
-        private char[,] matrizLetra = new char[7,7];
         public override NombreLetra Nombre => NombreLetra.I;
-        public override char[,] MatrizLetra => matrizLetra; // { get; }
         public I()
         {
             for (var row = 0; row < Length; row++)
@@ -219,12 +199,10 @@ namespace LetrasPOO
     public class J : Letra
     {
         // Sergio
-        private char[,] matrizLetra; // = new char[7,7];
         public override NombreLetra Nombre => NombreLetra.J;
-        public override char[,] MatrizLetra => matrizLetra; // { get; }
         public J()
         {
-            matrizLetra = new char[7, 7] {
+            matrizLetra = new char[SIETE, SIETE] {
             {Asterisco,Asterisco,Asterisco,Asterisco,Asterisco,Asterisco,Asterisco},
             {Blanco,Blanco,Blanco,Blanco,Blanco,Blanco,Asterisco},
             {Blanco,Blanco,Blanco,Blanco,Blanco,Blanco,Asterisco},
@@ -238,9 +216,7 @@ namespace LetrasPOO
     public class K : Letra
     {
         // René y Sergio
-        private char[,] matrizLetra = new char[7,7];
         public override NombreLetra Nombre => NombreLetra.K;
-        public override char[,] MatrizLetra => matrizLetra; // { get; }
         public K()
         {
             char[] miLetra = new char[49];
@@ -249,7 +225,7 @@ namespace LetrasPOO
                 miLetra[h] = Blanco;
             }
             int f = 0, c = 1, paso = 2, index = 5, conteo = 0;
-            while (f < 7)
+            while (f < SIETE)
             {
                 miLetra[conteo] = Asterisco;
                 //Console.Write("*");
@@ -292,10 +268,10 @@ namespace LetrasPOO
             }
 
             // AÑADIDO:
-            // Pasar el array de 1 dimensión de René miLetra[49] al array de 2 dimensiones matrizLetra[7,7].
+            // Pasar el array de 1 dimensión de René miLetra[49] al array de 2 dimensiones matrizLetra[SIETE,SIETE].
             // En el caso de la K, sólo se usan las cinco primeras columnas.
             var i = 0;
-            for (var fila = 0; fila < 7; fila++)
+            for (var fila = 0; fila < SIETE; fila++)
             {
                 for (var col = 0; col < 5; col++)
                 {
@@ -308,30 +284,23 @@ namespace LetrasPOO
     public class L : Letra
     {
         // Jose vicente
-        private char[,] matrizLetra; // = new char[7,7];
         public override NombreLetra Nombre => NombreLetra.L;
-        public override char[,] MatrizLetra => matrizLetra; // { get; }
         public L()
         {
-            matrizLetra = new char[7, 7]{
-            {Asterisco,Asterisco,Asterisco,Asterisco,Asterisco,Asterisco,Asterisco},
-            {Asterisco,Blanco,Blanco,Blanco,Blanco,Blanco,Asterisco},
-            {Asterisco,Blanco,Blanco,Blanco,Blanco,Blanco,Asterisco},
-            {Asterisco,Asterisco,Asterisco,Asterisco,Asterisco,Asterisco,Asterisco},
-            {Asterisco,Blanco,Blanco,Blanco,Blanco,Blanco,Asterisco},
-            {Asterisco,Blanco,Blanco,Blanco,Blanco,Blanco,Asterisco},
-            {Asterisco,Blanco,Blanco,Blanco,Blanco,Blanco,Asterisco}};
+            for (var i = 0; i < SIETE; i++)
+            {
+                matrizLetra[i, 0] = '*';
+                matrizLetra[6, i] = '*';
+            }
         }
 
     }
     public class M : Letra
     {
-        private char[,] matrizLetra; // = new char[7,7];
         public override NombreLetra Nombre => NombreLetra.M;
-        public override char[,] MatrizLetra => matrizLetra; // { get; }
         public M()
         {
-            matrizLetra = new char[7, 7] {  {'*',' ',' ',' ',' ',' ','*'},
+            matrizLetra = new char[SIETE, SIETE] {  {'*',' ',' ',' ',' ',' ','*'},
             {'*','*',' ',' ',' ','*','*'},
             {'*',' ','*',' ','*',' ','*'},
             {'*',' ',' ','*',' ',' ','*'},
@@ -344,12 +313,10 @@ namespace LetrasPOO
     public class N : Letra
     {
         // Miguel Angel Sergio
-        private char[,] matrizLetra = new char[7,7];
         public override NombreLetra Nombre => NombreLetra.N;
-        public override char[,] MatrizLetra => matrizLetra; // { get; }
         public N()
         {
-            string[] letr = new string[7];
+            string[] letr = new string[SIETE];
             letr[0] = "*     *";
             letr[1] = "**    *";
             letr[2] = "* *   *";
@@ -360,9 +327,9 @@ namespace LetrasPOO
 
             // AÑADIDO:
             // Pasamos el arrays de una dimensión al de dos dimensiones.
-            for (var row = 0; row < 7; row++)
+            for (var row = 0; row < SIETE; row++)
             {
-                for (var col = 0; col < 7; col++)
+                for (var col = 0; col < SIETE; col++)
                 {
                     matrizLetra[row, col] = Convert.ToChar(letr[row].Substring(col, 1));
                 }
@@ -372,16 +339,14 @@ namespace LetrasPOO
     }
     public class Ñ : Letra
     {
-        private char[,] matrizLetra = new char[7,7];
         public override NombreLetra Nombre => NombreLetra.Ñ;
-        public override char[,] MatrizLetra => matrizLetra; // { get; }
         public Ñ()
         {
-            for (var i = 0; i < 7; i++)
+            for (var i = 0; i < SIETE; i++)
             {
                 matrizLetra[0, i] = '*';
             }
-            for (var i = 2; i < 7; i++)
+            for (var i = 2; i < SIETE; i++)
             {
                 matrizLetra[i, 0] = '*';
                 matrizLetra[i, 6] = '*';
@@ -396,13 +361,11 @@ namespace LetrasPOO
     }
     public class O : Letra
     {
-        private char[,] matrizLetra; // = new char[7,7];
         public override NombreLetra Nombre => NombreLetra.O;
-        public override char[,] MatrizLetra => matrizLetra; // { get; }
         public O()
         {
             // JUSTO
-            matrizLetra = new char[7, 7] {  {' ',' ','*','*','*',' ',' '},
+            matrizLetra = new char[SIETE, SIETE] {  {' ',' ','*','*','*',' ',' '},
               {' ','*',' ',' ',' ','*',' '},
               {'*',' ',' ',' ',' ',' ','*'},
               {'*',' ',' ',' ',' ',' ','*'},
@@ -415,9 +378,7 @@ namespace LetrasPOO
     }
     public class P : Letra
     {
-        private char[,] matrizLetra = new char[7,7];
         public override NombreLetra Nombre => NombreLetra.P;
-        public override char[,] MatrizLetra => matrizLetra; // { get; }
         public P()
         {
             //Sergio
@@ -438,13 +399,11 @@ namespace LetrasPOO
     }
     public class Q : Letra
     {
-        private char[,] matrizLetra; // = new char[7,7];
         public override NombreLetra Nombre => NombreLetra.Q;
-        public override char[,] MatrizLetra => matrizLetra; // { get; }
         public Q()
         {
             // Justo
-            matrizLetra = new char[7, 7] {
+            matrizLetra = new char[SIETE, SIETE] {
            {' ','*','*','*','*','*',' '},
            {'*',' ',' ',' ',' ',' ','*'},
            {'*',' ',' ',' ',' ',' ','*'},
@@ -457,9 +416,7 @@ namespace LetrasPOO
     }
     public class R : Letra
     {
-        private char[,] matrizLetra = new char[7,7];
         public override NombreLetra Nombre => NombreLetra.R;
-        public override char[,] MatrizLetra => matrizLetra; // { get; }
         public R()
         {
             // Carlos
@@ -480,15 +437,13 @@ namespace LetrasPOO
     }
     public class S : Letra
     {
-        private char[,] matrizLetra = new char[7,7];
         public override NombreLetra Nombre => NombreLetra.S;
-        public override char[,] MatrizLetra => matrizLetra; // { get; }
         public S()
         {
             // Juanjo
-            for (var i = 0; i < 7; i++)
+            for (var i = 0; i < SIETE; i++)
             {
-                for (var j = 0; j < 7; j++)
+                for (var j = 0; j < SIETE; j++)
                 {
                     matrizLetra[i, j] = (
                     (((i == 0 || i == 6) && (j < 3))
@@ -503,9 +458,7 @@ namespace LetrasPOO
     }
     public class T : Letra
     {
-        private char[,] matrizLetra = new char[7,7];
         public override NombreLetra Nombre => NombreLetra.T;
-        public override char[,] MatrizLetra => matrizLetra; // { get; }
         public T()
         {
             // Jose Vicente
@@ -519,13 +472,11 @@ namespace LetrasPOO
     }
     public class U : Letra
     {
-        private char[,] matrizLetra; // = new char[7,7];
         public override NombreLetra Nombre => NombreLetra.U;
-        public override char[,] MatrizLetra => matrizLetra; // { get; }
         public U()
         {
             // Ino
-            matrizLetra = new char[7, 7] {
+            matrizLetra = new char[SIETE, SIETE] {
             {'*',' ',' ',' ',' ',' ','*'},
             {'*',' ',' ',' ',' ',' ','*'},
             {'*',' ',' ',' ',' ',' ','*'},
@@ -538,15 +489,13 @@ namespace LetrasPOO
     }
     public class V : Letra
     {
-        private char[,] matrizLetra = new char[7,7];
         public override NombreLetra Nombre => NombreLetra.V;
-        public override char[,] MatrizLetra => matrizLetra; // { get; }
         public V()
         {
             //Javier
-            for (var row = 0; row < 7; row++)
+            for (var row = 0; row < SIETE; row++)
             {
-                for (var column = 0; column < 7; column++)
+                for (var column = 0; column < SIETE; column++)
                 {
                     matrizLetra[row, column] = (
                     (column == 0 || column == 6) && (row == 0 || row == 1) ? '*' :
@@ -560,9 +509,7 @@ namespace LetrasPOO
     }
     public class W : Letra
     {
-        private char[,] matrizLetra = new char[7,7];
         public override NombreLetra Nombre => NombreLetra.W;
-        public override char[,] MatrizLetra => matrizLetra; // { get; }
         public W()
         {
             // Rene y Javier
@@ -611,11 +558,11 @@ namespace LetrasPOO
             }
 
             // AÑADIDO:
-            // Pasar el array de 1 dimensión de René miLetra[49] al array de 2 dimensiones matrizLetra[7,7].
+            // Pasar el array de 1 dimensión de René miLetra[49] al array de 2 dimensiones matrizLetra[SIETE,SIETE].
             var i = 0;
-            for (var fila = 0; fila < 7; fila++)
+            for (var fila = 0; fila < SIETE; fila++)
             {
-                for (col = 0; col < 7; col++)
+                for (col = 0; col < SIETE; col++)
                 {
                     matrizLetra[fila, col] = miLetra[i++];
                 }
@@ -625,13 +572,11 @@ namespace LetrasPOO
     }
     public class X : Letra
     {
-        private char[,] matrizLetra; // = new char[7,7];
         public override NombreLetra Nombre => NombreLetra.X;
-        public override char[,] MatrizLetra => matrizLetra; // { get; }
         public X()
         {
             // Ino
-            matrizLetra = new char[7, 7] {
+            matrizLetra = new char[SIETE, SIETE] {
             {'*',' ',' ',' ',' ',' ','*'},
             {' ','*',' ',' ',' ','*',' '},
             {' ',' ','*',' ','*',' ',' '},
@@ -644,9 +589,7 @@ namespace LetrasPOO
     }
     public class Y : Letra
     {
-        private char[,] matrizLetra = new char[7,7];
         public override NombreLetra Nombre => NombreLetra.Y;
-        public override char[,] MatrizLetra => matrizLetra; // { get; }
         public Y()
         {
             // Juan Ramon
@@ -657,21 +600,19 @@ namespace LetrasPOO
             matrizLetra[2, 4] = '*';
             matrizLetra[1, 5] = '*';
             matrizLetra[0, 6] = '*';
-            for (var i = 3; i < 7; i++)
+            for (var i = 3; i < SIETE; i++)
                 matrizLetra[i, 3] = '*';
         }
 
     }
     public class Z : Letra
     {
-        private char[,] matrizLetra = new char[7,7];
         public override NombreLetra Nombre => NombreLetra.Z;
-        public override char[,] MatrizLetra => matrizLetra; // { get; }
         public Z()
         {
-            for (var row = 0; row < 7; row++)
+            for (var row = 0; row < SIETE; row++)
             {
-                for (var column = 0; column < 7; column++)
+                for (var column = 0; column < SIETE; column++)
                 {
                     matrizLetra[row, column] = (
                     (column >= 0 || column <= 6) && (row == 0 || row == 6) ? '*' :
@@ -683,80 +624,6 @@ namespace LetrasPOO
         }
 
     }
+    #endregion
 
-
-
-    public abstract class Gestion
-    {
-        public abstract void PintarLetra(char letra);
-        public abstract void PintarFrasePorPalabra(string frase);
-        public abstract void lecturaTeclado(string mensaje, out string lectura);
-    }
-    public class GesLetras : Gestion
-    {
-        protected char Blanco = ' ';
-        private Dictionary<char, Letra> letras = new Dictionary<char, Letra>();
-        public Dictionary<char, Letra> Letras => letras;
-        public GesLetras()
-        {
-            //Carga letras en el diccionario genérico de letras
-            if (letras.Count < Enum.GetNames(typeof(NombreLetra)).Length)
-            {
-                foreach (string a in Enum.GetNames(typeof(NombreLetra)))
-                {
-                    if (!letras.ContainsKey(a[0]))
-                    {
-                        Assembly ase = typeof(Letra).Assembly;
-                        Letra l = (Letra)ase.CreateInstance($"LetrasPOO.{a}");
-                        letras.Add(a[0], l);
-                    }
-                    WriteLine(a);
-                }
-            }
-        }
-        public override void PintarLetra(char letra)
-        {
-            if (letras.ContainsKey(letra))
-            {
-                Letra l = Letras[letra];
-                for (int i = 0; i < 7; i++)
-                {
-                    for (int j = 0; j < 7; j++)
-                    {
-                        Write(l.MatrizLetra[i, j]);
-                    }
-                    WriteLine();
-                }
-            }
-            else
-                WriteLine($"Letra:{letra} - No implementada aún");
-        }
-        public override void PintarFrasePorPalabra(string frase)
-        {
-            frase = frase.ToUpper();
-            for (sbyte lineas = 0; lineas < 7; lineas++) //Itera por lineas
-            {   //Por cada linea itera por palabras
-                for (sbyte letraPorPalabra = 0; letraPorPalabra < (sbyte)frase.Length; letraPorPalabra++)
-                {
-                    for (sbyte columna = 0; columna < 7; columna++)
-                    {
-                        if (letras.ContainsKey(frase[letraPorPalabra]))
-                        {
-                            Letra l = Letras[frase[letraPorPalabra]];
-                            Write(l.MatrizLetra[lineas, columna]);
-                        }
-                        else
-                            Write(Blanco); // los espacios o aquellas letras que aún no estan implementadas
-                    }
-                    Write(Blanco);         // espacio entre letras
-                }
-                WriteLine();            // salto de linea
-            }
-        }
-        public override void lecturaTeclado(string mensaje, out string lectura)
-        {
-            Write(mensaje);
-            lectura = ReadLine();
-        }
-    }
 }

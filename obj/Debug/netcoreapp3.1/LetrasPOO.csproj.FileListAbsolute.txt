@@ -11,3 +11,5 @@ D:\BMV\20483C\Ejercicios\LetrasPOO\obj\Debug\netcoreapp3.1\LetrasPOO.csproj.Core
 D:\BMV\20483C\Ejercicios\LetrasPOO\obj\Debug\netcoreapp3.1\LetrasPOO.dll
 D:\BMV\20483C\Ejercicios\LetrasPOO\obj\Debug\netcoreapp3.1\LetrasPOO.pdb
 D:\BMV\20483C\Ejercicios\LetrasPOO\obj\Debug\netcoreapp3.1\LetrasPOO.genruntimeconfig.cache
+D:\BMV\20483C\Ejercicios\LetrasPOO\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\BMV\20483C\Ejercicios\LetrasPOO\obj\Debug\netcoreapp3.1\LetrasPOO.csproj.CopyComplete
