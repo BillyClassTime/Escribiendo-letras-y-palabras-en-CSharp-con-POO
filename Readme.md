@@ -56,7 +56,11 @@ Todos los participantes deberán recibir la clase abstracta y la clase base de G
 
 
 
+<<<<<<< HEAD
 ![](./img/clases.png)
+=======
+![](.\clases.png)
+>>>>>>> 87da985b47b6d9f238f688c44807d9bfe14843b7
 
 ### Fecha de revision y entrega
 
