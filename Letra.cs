@@ -1,7 +1,7 @@
 using System;
 namespace LetrasPOO
 {
-    public enum NombreLetra { A, B, C, D, E, F, G, H, I, J, K, L, M, N, Ñ, O, P, Q, R, S, T, U, V, W, X, Y, Z, Á }
+    public enum NombreLetra {A, B, C, D, E, F, G, H, I, J, K, L, M, N, Ñ, O, P, Q, R, S, T, U, V, W, X, Y, Z, Á}
     public abstract class Letra
     {
         protected const sbyte SIETE = 7;
@@ -10,7 +10,17 @@ namespace LetrasPOO
         protected const sbyte Length = SIETE;
         protected char[,] matrizLetra = new char[SIETE, SIETE];
         public abstract NombreLetra Nombre { get; }
-        public char[,] MatrizLetra => matrizLetra;
+        public char[,] MatrizLetra => matrizLetra; // solo get 
+        public Letra() // En el constructor de la clase abstracta carga una matriz en blanco de 7x7
+        {
+            for (var row = 0; row < SIETE; row++)
+            {
+                for (var col = 0; col < SIETE; col++)
+                {
+                    matrizLetra[row, col] = Blanco;
+                }
+            }
+        }
     }
     #region Diccionario de letras
     public class A : Letra
@@ -444,8 +454,8 @@ namespace LetrasPOO
             // Jose Vicente
             for (var i = 0; i < Length; i++)
             {
-                matrizLetra[0, i] = '*';
-                matrizLetra[i, 3] = '*';
+                matrizLetra[0, i] = Asterisco;
+                matrizLetra[i, 3] = Asterisco;
             }
         }
     }

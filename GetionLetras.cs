@@ -24,8 +24,8 @@ namespace LetrasPOO
             {
                 if (File.Exists(pl.FilePath))
                 {
-                    letras = pl.DesSereliazarLetras();
-                    if (letras == null)
+                    letras = pl.DesSereliazarLetras(); // Carga nuevamente el diccionario si el No de letras no coincide o no hay diccionario en disco
+                    if ((letras == null) || (letras.Count != Enum.GetNames(typeof(NombreLetra)).Length))
                         letras = new Dictionary<char, Letra>();
                 }
                 //Carga letras en el diccionario genérico de letras
@@ -36,7 +36,8 @@ namespace LetrasPOO
             catch (System.Exception e)
             {
                 cargarDiccionarioDeLetras();
-                WriteLine($"Problemas con el diccionario en disco:{e.Message.Substring(0, 24)}");
+                pl.SerializarLetras(letras); // persiste el diccionario a disco tras el problema
+                WriteLine($"Problemas con el diccionario en disco:{e.Message.Substring(0, 36)}");
             }
         }
         private void cargarDiccionarioDeLetras()
@@ -49,9 +50,17 @@ namespace LetrasPOO
                 {
                     if (!letras.ContainsKey(a[0]))
                     {
-                        Assembly ase = typeof(Letra).Assembly;
-                        Letra l = (Letra)ase.CreateInstance($"LetrasPOO.{a}");
-                        letras.Add(a[0], l);
+                        Letra l = null;
+                        try
+                        {
+                            Assembly ase = typeof(Letra).Assembly;
+                            l = (Letra)ase.CreateInstance($"LetrasPOO.{a}");
+                        }
+                        finally
+                        {
+                            if (l != null)
+                                letras.Add(a[0], l);
+                        }
                     }
                     WriteLine(a);
                 }
