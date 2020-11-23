@@ -103,7 +103,7 @@ namespace LetrasPOO
             }
         }
     }
-    public class E : Letra
+    public class E: Letra
     {
         // Version Inicial de Luis Miguel
         public override NombreLetra Nombre => NombreLetra.E;
